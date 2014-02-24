@@ -1,10 +1,11 @@
 class Quicksort
 
   def self.sort(list, from=0, to=list.size-1)
-    return list if to - from < 1
-    pivot_index = partition(list, from, to)
-    sort(list, from, pivot_index-1)
-    sort(list, pivot_index+1, to)
+    if to < from
+      pivot_index = partition(list, from, to)
+      sort(list, from, pivot_index-1)
+      sort(list, pivot_index+1, to)
+    end
     list
   end
 
