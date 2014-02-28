@@ -14,8 +14,8 @@ class Heap
   end
 
   def pop
-    root = @_elements[0]
-    @_elements[0] = @_elements.pop
+    root = @_elements.shift
+    @_elements.unshift(@_elements.pop)
     trickle_down(0)
     root
   end
