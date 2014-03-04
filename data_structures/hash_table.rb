@@ -2,9 +2,10 @@ require 'zlib' # for crc32 hash function
 
 class HashTable
 
-  def initialize
-    @_buckets = []
-    @_array_size = 100
+  def initialize(max_buckets=100)
+    @max_buckets = max_buckets
+    @num_entries = 0
+    @_buckets = Array.new(@max_buckets)
   end
 
   def [](key)
@@ -24,6 +25,7 @@ class HashTable
 
     if bucket.nil?
       @_buckets[index] = [[key, val]]
+      @num_entries += 1
     else
       for i in 0...bucket.length
         k, v = bucket[i]
@@ -31,16 +33,34 @@ class HashTable
           bucket[i] = [key, val]
           return val
         end
-        bucket << [key, val]
       end
+      bucket << [key, val]
+      @num_entries += 1
     end
+    resize_buckets if load_factor > 3
     val
   end
 
 private
 
   def hash(key)
-    Zlib.crc32(key.to_s) % @_array_size
+    Zlib.crc32(key.to_s) % @max_buckets
+  end
+
+  def load_factor
+    @num_entries.fdiv @max_buckets
+  end
+
+  def resize_buckets
+    @max_buckets *= 2
+    @num_entries = 0
+
+    old_buckets = @_buckets
+    @_buckets = Array.new(@max_buckets)
+    old_buckets.each do |bucket|
+      next unless bucket
+      bucket.each{|k,v| self[k] = v}
+    end
   end
 
 end
