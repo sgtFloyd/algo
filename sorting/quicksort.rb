@@ -26,8 +26,8 @@ class Quicksort
   end
 
   def self.pivot(list, from, to)
-    samples = [from, from + (to-from)/2, to]
-    samples.sort_by{|i| list[i]}[1] # use median of the three samples
+    samples = list.values_at *[from, from + (to-from)/2, to]
+    samples.inject(:^) ^ samples.min ^ samples.max
   end
 
   def self.swap(list, i, j)
