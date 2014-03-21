@@ -1,8 +1,12 @@
 #include "heap.h"
 
-namespace DataStructures {
-  int fun (int x){
-    x=x*x;
-    return x;
-  }
+int Heap::setValue(int new_value)
+{
+  value = new_value;
+  return value;
+}
+
+int Heap::getValue()
+{
+  return value;
 }

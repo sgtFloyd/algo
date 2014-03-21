@@ -1,8 +1,12 @@
 #ifndef HEAP_H
 #define HEAP_H
 
-namespace DataStructures {
-  int fun (int);
-}
+class Heap
+{
+  int value;
+public:
+  int setValue(int new_value);
+  int getValue();
+};
 
 #endif

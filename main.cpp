@@ -2,10 +2,10 @@
 #include "data_structures/heap.h"
 
 using namespace std;
-using namespace DataStructures;
 
 int main(){
-  int a=10;
-  cout << fun(a) << endl;
+  Heap h;
+  h.setValue(123);
+  cout << h.getValue() << endl;
   return 0;
 }
