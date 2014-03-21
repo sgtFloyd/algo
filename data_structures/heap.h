@@ -3,12 +3,11 @@
 
 class Heap
 {
-  int elements;
+  int* elements;
 public:
   Heap();
-  Heap(int);
-  void setElements(int);
-  int getElements();
+  void setElements(int*);
+  int* getElements();
 };
 
 #endif
