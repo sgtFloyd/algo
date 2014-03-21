@@ -5,7 +5,8 @@ using namespace std;
 
 int main(){
   Heap h;
-  h.setValue(123);
-  cout << h.getValue() << endl;
+  cout << h.getElements() << endl;
+  h.setElements(123);
+  cout << h.getElements() << endl;
   return 0;
 }

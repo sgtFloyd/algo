@@ -3,10 +3,12 @@
 
 class Heap
 {
-  int value;
+  int elements;
 public:
-  int setValue(int new_value);
-  int getValue();
+  Heap();
+  Heap(int);
+  void setElements(int);
+  int getElements();
 };
 
 #endif

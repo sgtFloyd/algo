@@ -1,12 +1,21 @@
 #include "heap.h"
 
-int Heap::setValue(int new_value)
+Heap::Heap()
 {
-  value = new_value;
-  return value;
+  elements = -1;
 }
 
-int Heap::getValue()
+Heap::Heap(int new_elements)
 {
-  return value;
+  elements = new_elements;
+}
+
+void Heap::setElements(int new_elements)
+{
+  elements = new_elements;
+}
+
+int Heap::getElements()
+{
+  return elements;
 }
