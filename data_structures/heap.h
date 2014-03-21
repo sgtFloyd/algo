@@ -1,13 +1,16 @@
 #ifndef HEAP_H
 #define HEAP_H
 
+#include <vector>
+
 class Heap
 {
-  int* elements;
+  std::vector<int> elements;
 public:
   Heap();
-  void setElements(int*);
-  int* getElements();
+  void insert(int);
+  int peek();
+  int pop();
 };
 
 #endif

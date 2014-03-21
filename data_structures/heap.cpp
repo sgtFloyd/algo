@@ -4,12 +4,19 @@ Heap::Heap()
 {
 }
 
-void Heap::setElements(int* new_elements)
+void Heap::insert(int element)
 {
-  elements = new_elements;
+  elements.push_back(element);
 }
 
-int* Heap::getElements()
+int Heap::peek()
 {
-  return elements;
+  return elements.back();
+}
+
+int Heap::pop()
+{
+  int last_val = peek();
+  elements.pop_back();
+  return last_val;
 }

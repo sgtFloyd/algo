@@ -5,9 +5,10 @@ using namespace std;
 
 int main(){
   Heap h;
-  cout << h.getElements()[0] << endl;
-  int elements[] = {5,6};
-  h.setElements(elements);
-  cout << h.getElements()[0] << endl;
+  h.insert(5);
+  cout << h.peek() << endl;
+  h.insert(2);
+  cout << h.pop() << endl;
+  cout << h.peek() << endl;
   return 0;
 }
