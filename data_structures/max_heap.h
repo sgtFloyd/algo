@@ -2,19 +2,20 @@
 #define MAX_HEAP_H
 
 #include <vector>
-#include <iostream>
+#include <sstream>
 
 class MaxHeap
 {
-  std::vector<int> elements;
 public:
   MaxHeap();
   void insert(int);
-  int peek();
+  int peek() const;
   int pop();
-  std::string to_str();
+  std::string to_str() const;
 
 private:
+  std::vector<int> elements;
+
   int parent_node(int);
   int left_child(int);
   int right_child(int);
