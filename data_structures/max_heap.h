@@ -1,17 +1,19 @@
-#ifndef HEAP_H
-#define HEAP_H
+#ifndef MAX_HEAP_H
+#define MAX_HEAP_H
 
 #include <vector>
+#include <iostream>
 
-class Heap
+class MaxHeap
 {
   std::vector<int> elements;
 public:
-  Heap();
+  MaxHeap();
   void insert(int);
   int peek();
   int pop();
-  void print_elements();
+  std::string to_str();
+
 private:
   int parent_node(int);
   int left_child(int);
@@ -24,6 +26,8 @@ private:
   void swap(int, int);
   void trickle_up(int);
   void trickle_down(int);
+
+  friend std::ostream & operator<<(std::ostream&, MaxHeap&);
 };
 
 #endif

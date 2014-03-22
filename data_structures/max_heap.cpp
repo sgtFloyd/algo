@@ -1,20 +1,19 @@
-#include "heap.h"
-#include <iostream>
+#include "max_heap.h"
 
-Heap::Heap(){} // constructor
+MaxHeap::MaxHeap(){} // constructor
 
-void Heap::insert(int element)
+void MaxHeap::insert(int element)
 {
   elements.push_back(element);
   trickle_up(elements.size()-1);
 }
 
-int Heap::peek()
+int MaxHeap::peek()
 {
   return elements.front();
 }
 
-int Heap::pop()
+int MaxHeap::pop()
 {
   int root = peek();
   elements[0] = elements.back();
@@ -23,21 +22,21 @@ int Heap::pop()
   return root;
 }
 
-void Heap::print_elements()
+std::string MaxHeap::to_str()
 {
-  std::cout << "[ ";
+  std::string str = "[ ";
   for(int i=0; i<elements.size(); i++)
   {
-    std::cout << elements[i] << " ";
+    // str = str + elements[i];
+    str = str + " ";
   }
-  std::cout << "]" << std::endl;
+  return str + "]";
 }
 
-
-int Heap::parent_node(int i){ return (i-1) / 2; }
-int Heap::left_child(int i){ return (i*2) + 1; }
-int Heap::right_child(int i){ return (i*2) + 2; }
-int Heap::max_child(int i)
+int MaxHeap::parent_node(int i){ return (i-1) / 2; }
+int MaxHeap::left_child(int i){ return (i*2) + 1; }
+int MaxHeap::right_child(int i){ return (i*2) + 2; }
+int MaxHeap::max_child(int i)
 {
   if( right_child(i) <= elements.size() )
   {
@@ -56,20 +55,20 @@ int Heap::max_child(int i)
   }
 }
 
-bool Heap::is_root_node(int i){ return i == 0; }
-bool Heap::is_leaf_node(int i)
+bool MaxHeap::is_root_node(int i){ return i == 0; }
+bool MaxHeap::is_leaf_node(int i)
 {
   return left_child(i) >= elements.size();
 }
 
-void Heap::swap(int i, int j)
+void MaxHeap::swap(int i, int j)
 {
   int temp = elements[i];
   elements[i] = elements[j];
   elements[j] = temp;
 }
 
-void Heap::trickle_up(int i)
+void MaxHeap::trickle_up(int i)
 {
   if( !is_root_node(i) )
   {
@@ -82,7 +81,7 @@ void Heap::trickle_up(int i)
   }
 }
 
-void Heap::trickle_down(int i)
+void MaxHeap::trickle_down(int i)
 {
   if( !is_leaf_node(i) )
   {
@@ -93,4 +92,9 @@ void Heap::trickle_down(int i)
       trickle_down(child);
     }
   }
+}
+
+std::ostream & operator<<(std::ostream &os, MaxHeap& h)
+{
+    return os << h.to_str();
 }
