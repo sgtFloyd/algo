@@ -8,11 +8,6 @@ void MinHeap::insert(int element)
   trickle_up(elements.size()-1);
 }
 
-int MinHeap::peek() const
-{
-  return elements.front();
-}
-
 int MinHeap::pop()
 {
   int root = peek();
@@ -22,22 +17,6 @@ int MinHeap::pop()
   return root;
 }
 
-std::string MinHeap::to_str() const
-{
-  std::ostringstream ss;
-  ss << "[";
-  for(int i=0; i<elements.size(); i++)
-  {
-    if( i != 0 ) ss << ", ";
-    ss << elements[i];
-  }
-  ss << "]";
-  return ss.str();
-}
-
-int MinHeap::parent_node(int i){ return (i-1) / 2; }
-int MinHeap::left_child(int i){ return (i*2) + 1; }
-int MinHeap::right_child(int i){ return (i*2) + 2; }
 int MinHeap::min_child(int i)
 {
   if( right_child(i) < elements.size() &&
@@ -45,12 +24,6 @@ int MinHeap::min_child(int i)
     return right_child(i);
   else
     return left_child(i);
-}
-
-bool MinHeap::is_root_node(int i){ return i == 0; }
-bool MinHeap::is_leaf_node(int i)
-{
-  return left_child(i) >= elements.size();
 }
 
 void MinHeap::trickle_up(int i)
@@ -77,9 +50,4 @@ void MinHeap::trickle_down(int i)
       trickle_down(child);
     }
   }
-}
-
-std::ostream & operator<<(std::ostream &os, MinHeap& h)
-{
-  return os << h.to_str();
 }
