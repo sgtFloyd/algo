@@ -1,10 +1,10 @@
 #include <iostream>
-#include "data_structures/heap.h"
+#include "data_structures/max_heap.h"
 
 using namespace std;
 
 int main(){
-  Heap h;
+  MaxHeap h;
   h.insert(5); cout << h << endl;
   h.insert(7); cout << h << endl;
   h.insert(2); cout << h << endl;

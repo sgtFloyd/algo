@@ -8,11 +8,6 @@ void MaxHeap::insert(int element)
   trickle_up(elements.size()-1);
 }
 
-int MaxHeap::peek() const
-{
-  return elements.front();
-}
-
 int MaxHeap::pop()
 {
   int root = peek();
@@ -22,22 +17,6 @@ int MaxHeap::pop()
   return root;
 }
 
-std::string MaxHeap::to_str() const
-{
-  std::ostringstream ss;
-  ss << "[";
-  for(int i=0; i<elements.size(); i++)
-  {
-    if( i != 0 ) ss << ", ";
-    ss << elements[i];
-  }
-  ss << "]";
-  return ss.str();
-}
-
-int MaxHeap::parent_node(int i){ return (i-1) / 2; }
-int MaxHeap::left_child(int i){ return (i*2) + 1; }
-int MaxHeap::right_child(int i){ return (i*2) + 2; }
 int MaxHeap::max_child(int i)
 {
   if( right_child(i) < elements.size() &&
@@ -45,12 +24,6 @@ int MaxHeap::max_child(int i)
     return right_child(i);
   else
     return left_child(i);
-}
-
-bool MaxHeap::is_root_node(int i){ return i == 0; }
-bool MaxHeap::is_leaf_node(int i)
-{
-  return left_child(i) >= elements.size();
 }
 
 void MaxHeap::trickle_up(int i)
@@ -77,9 +50,4 @@ void MaxHeap::trickle_down(int i)
       trickle_down(child);
     }
   }
-}
-
-std::ostream & operator<<(std::ostream &os, MaxHeap& h)
-{
-  return os << h.to_str();
 }
