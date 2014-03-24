@@ -28,10 +28,7 @@ std::string MaxHeap::to_str() const
   ss << "[";
   for(int i=0; i<elements.size(); i++)
   {
-    if( i != 0 )
-    {
-      ss << ", ";
-    }
+    if( i != 0 ) ss << ", ";
     ss << elements[i];
   }
   ss << "]";
@@ -43,34 +40,17 @@ int MaxHeap::left_child(int i){ return (i*2) + 1; }
 int MaxHeap::right_child(int i){ return (i*2) + 2; }
 int MaxHeap::max_child(int i)
 {
-  if( right_child(i) < elements.size() )
-  {
-    if( elements[right_child(i)] > elements[left_child(i)] )
-    {
-      return right_child(i);
-    }
-    else
-    {
-      return left_child(i);
-    }
-  }
+  if( right_child(i) < elements.size() &&
+        elements[right_child(i)] > elements[left_child(i)] )
+    return right_child(i);
   else
-  {
     return left_child(i);
-  }
 }
 
 bool MaxHeap::is_root_node(int i){ return i == 0; }
 bool MaxHeap::is_leaf_node(int i)
 {
   return left_child(i) >= elements.size();
-}
-
-void MaxHeap::swap(int i, int j)
-{
-  int temp = elements[i];
-  elements[i] = elements[j];
-  elements[j] = temp;
 }
 
 void MaxHeap::trickle_up(int i)
@@ -80,7 +60,7 @@ void MaxHeap::trickle_up(int i)
     int parent = parent_node(i);
     if( elements[i] > elements[parent] )
     {
-        swap(i, parent);
+        std::swap(elements[i], elements[parent]);
         trickle_up(parent);
     }
   }
@@ -93,7 +73,7 @@ void MaxHeap::trickle_down(int i)
     int child = max_child(i);
     if( elements[i] < elements[child] )
     {
-      swap(i, child);
+      std::swap(elements[i], elements[child]);
       trickle_down(child);
     }
   }
@@ -101,5 +81,5 @@ void MaxHeap::trickle_down(int i)
 
 std::ostream & operator<<(std::ostream &os, MaxHeap& h)
 {
-    return os << h.to_str();
+  return os << h.to_str();
 }

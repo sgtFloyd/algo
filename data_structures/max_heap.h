@@ -24,7 +24,6 @@ private:
   bool is_root_node(int);
   bool is_leaf_node(int);
 
-  void swap(int, int);
   void trickle_up(int);
   void trickle_down(int);
 
