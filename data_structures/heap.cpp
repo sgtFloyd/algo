@@ -1,7 +1,5 @@
 #include "heap.h"
 
-Heap::Heap(){} // constructor
-
 void Heap::insert(int element)
 {
   elements.push_back(element);

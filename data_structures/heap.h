@@ -7,7 +7,7 @@
 class Heap
 {
 public:
-  Heap();
+  Heap(){};
   void insert(int);
   int peek() const;
   int pop();

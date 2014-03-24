@@ -1,7 +1,5 @@
 #include "max_heap.h"
 
-MaxHeap::MaxHeap(){} // constructor
-
 void MaxHeap::insert(int element)
 {
   elements.push_back(element);

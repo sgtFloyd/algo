@@ -1,7 +1,5 @@
 #include "min_heap.h"
 
-MinHeap::MinHeap(){} // constructor
-
 void MinHeap::insert(int element)
 {
   elements.push_back(element);

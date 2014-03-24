@@ -8,7 +8,7 @@
 class MinHeap : public Heap
 {
 public:
-  MinHeap();
+  MinHeap(){};
   void insert(int);
   int pop();
 

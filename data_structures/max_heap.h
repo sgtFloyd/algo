@@ -8,7 +8,7 @@
 class MaxHeap : public Heap
 {
 public:
-  MaxHeap();
+  MaxHeap(){};
   void insert(int);
   int pop();
 
