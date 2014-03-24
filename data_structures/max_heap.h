@@ -12,9 +12,8 @@ public:
   void insert(int);
   int pop();
 
-protected:
+private:
   int max_child(int);
-
   void trickle_up(int);
   void trickle_down(int);
 };

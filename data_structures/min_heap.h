@@ -14,7 +14,6 @@ public:
 
 private:
   int min_child(int);
-
   void trickle_up(int);
   void trickle_down(int);
 };
