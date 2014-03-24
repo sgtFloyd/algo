@@ -23,7 +23,7 @@ protected:
   bool is_root_node(int);
   bool is_leaf_node(int);
 
-  friend std::ostream & operator<<(std::ostream&, Heap&);
+  friend std::ostream& operator<<(std::ostream&, Heap&);
 };
 
 #endif
