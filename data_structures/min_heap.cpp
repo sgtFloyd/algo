@@ -31,8 +31,8 @@ void MinHeap::trickle_up(int i)
     int parent = parent_node(i);
     if( elements[i] < elements[parent] )
     {
-        std::swap(elements[i], elements[parent]);
-        trickle_up(parent);
+      std::swap(elements[i], elements[parent]);
+      trickle_up(parent);
     }
   }
 }
