@@ -16,9 +16,9 @@ public:
 protected:
   std::vector<int> elements;
 
-  int parent_node(int);
-  int left_child(int);
-  int right_child(int);
+  static int parent_node(int);
+  static int left_child(int);
+  static int right_child(int);
 
   bool is_root_node(int);
   bool is_leaf_node(int);
