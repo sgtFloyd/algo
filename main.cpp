@@ -1,10 +1,10 @@
 #include <iostream>
-#include "data_structures/min_heap.h"
+#include "data_structures/heap.h"
 
 using namespace std;
 
 int main(){
-  MinHeap h;
+  Heap h;
   h.insert(5); cout << h << endl;
   h.insert(7); cout << h << endl;
   h.insert(2); cout << h << endl;

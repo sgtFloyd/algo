@@ -2,7 +2,8 @@
 #define HEAP_H
 
 #include <vector>
-#include <sstream>
+#include <iostream>
+#include "../std_ext.h"
 
 class Heap
 {
@@ -11,7 +12,6 @@ public:
   void insert(int);
   int peek() const;
   int pop();
-  std::string to_str() const;
 
 protected:
   std::vector<int> elements;
