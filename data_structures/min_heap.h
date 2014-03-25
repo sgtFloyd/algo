@@ -2,8 +2,6 @@
 #define MIN_HEAP_H
 
 #include "heap.h"
-#include <vector>
-#include <sstream>
 
 class MinHeap : public Heap
 {

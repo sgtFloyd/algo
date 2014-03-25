@@ -2,8 +2,6 @@
 #define MAX_HEAP_H
 
 #include "heap.h"
-#include <vector>
-#include <sstream>
 
 class MaxHeap : public Heap
 {
