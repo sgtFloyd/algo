@@ -9,6 +9,7 @@ class Heap
 {
 public:
   Heap(){};
+  int size();
   void insert(int);
   int peek() const;
   int pop();

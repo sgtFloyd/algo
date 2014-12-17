@@ -3,7 +3,7 @@
 void MaxHeap::insert(int element)
 {
   elements.push_back(element);
-  trickle_up(elements.size()-1);
+  trickle_up(size()-1);
 }
 
 int MaxHeap::pop()
@@ -17,7 +17,7 @@ int MaxHeap::pop()
 
 int MaxHeap::max_child(int i)
 {
-  if( right_child(i) < elements.size() &&
+  if( right_child(i) < size() &&
         elements[right_child(i)] > elements[left_child(i)] )
     return right_child(i);
   else
