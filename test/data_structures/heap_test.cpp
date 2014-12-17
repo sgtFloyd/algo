@@ -1,4 +1,4 @@
-namespace heap_test{
+namespace heap_test {
 
   TEST_CASE( "Basic FIFO heap operations", "[heap]" ) {
     Heap h;
