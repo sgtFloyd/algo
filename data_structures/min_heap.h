@@ -6,7 +6,7 @@
 class MinHeap : public Heap
 {
 public:
-  MinHeap(){};
+  using Heap::Heap;
   void insert(int);
   int pop();
 

@@ -6,7 +6,7 @@
 class MaxHeap : public Heap
 {
 public:
-  MaxHeap(){};
+  using Heap::Heap;
   void insert(int);
   int pop();
 

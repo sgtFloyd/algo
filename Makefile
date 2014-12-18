@@ -1,10 +1,10 @@
-CC=g++
+CC=g++ -std=c++11
 .PHONY: test
 
 all: test
 
 test:
-	g++ test/test_helper.cpp -o unit_tests && ./unit_tests
+	$(CC) test/test_helper.cpp -o unit_tests && ./unit_tests
 	make clean
 
 clean:
