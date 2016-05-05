@@ -1,14 +1,11 @@
-#include "data_structures/min_heap.cpp"
+#include <iostream>
+#include "data_structures/array.cpp"
 
 int main (int argc, char *argv[])
 {
-  MinHeap h;
-  h.insert(10);
-  h.insert(8);
-  h.insert(6);
-  h.insert(4);
-  h.insert(2);
-  h.insert(0);
-  std::cout << h << std::endl;
+  Array<int> a;
+  a[0] = 44;
+  a[31] = 55;
+  std::cout << a[31] << std::endl;
   return 0;
 }
