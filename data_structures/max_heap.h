@@ -1,7 +1,7 @@
 #ifndef MAX_HEAP_H
 #define MAX_HEAP_H
 
-#include "heap.h"
+#include "heap.cpp"
 
 class MaxHeap : public Heap
 {

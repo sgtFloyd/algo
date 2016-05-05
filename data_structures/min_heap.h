@@ -1,7 +1,7 @@
 #ifndef MIN_HEAP_H
 #define MIN_HEAP_H
 
-#include "heap.h"
+#include "heap.cpp"
 
 class MinHeap : public Heap
 {
