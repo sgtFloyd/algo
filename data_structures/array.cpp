@@ -21,6 +21,7 @@ void Array<T>::resize()
   {
     *(new_ptr + i) = *(ptr + i);
   }
+  delete[] ptr;
   ptr = new_ptr;
   size = new_size;
 }
