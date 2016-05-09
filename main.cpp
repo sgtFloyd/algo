@@ -1,5 +1,5 @@
 #include <iostream>
-#include "data_structures/array.cpp"
+#include "data_structures/array.hpp"
 
 int main (int argc, char *argv[])
 {
