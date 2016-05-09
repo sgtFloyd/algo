@@ -27,23 +27,17 @@ public:
   }
 
 private:
-  using Heap<T>::parent_node;
-  using Heap<T>::left_child;
-  using Heap<T>::right_child;
-  using Heap<T>::is_root_node;
-  using Heap<T>::is_leaf_node;
-
   int max_child(int index) {
-    if( right_child(index) < this->size() &&
-          elements[right_child(index)] > elements[left_child(index)] )
-      return right_child(index);
+    if( this->right_child(index) < this->size() &&
+          elements[this->right_child(index)] > elements[this->left_child(index)] )
+      return this->right_child(index);
     else
-      return left_child(index);
+      return this->left_child(index);
   }
 
   void trickle_up(int index) {
-    if( !is_root_node(index) ) {
-      int parent = parent_node(index);
+    if( !this->is_root_node(index) ) {
+      int parent = this->parent_node(index);
       if( elements[index] > elements[parent] ) {
         std::swap(elements[index], elements[parent]);
         trickle_up(parent);
@@ -52,7 +46,7 @@ private:
   }
 
   void trickle_down(int index) {
-    if( !is_leaf_node(index) ) {
+    if( !this->is_leaf_node(index) ) {
       int child = max_child(index);
       if( elements[index] < elements[child] ) {
         std::swap(elements[index], elements[child]);
