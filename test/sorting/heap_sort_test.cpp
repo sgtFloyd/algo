@@ -1,3 +1,5 @@
+#include "../../sorting/heap_sort.hpp"
+
 namespace heap_sort_test {
 
   TEST_CASE( "Sort a known list of integers", "[heap_sort]" ) {

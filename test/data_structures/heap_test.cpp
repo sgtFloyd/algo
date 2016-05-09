@@ -1,3 +1,5 @@
+#include "../../data_structures/heap.hpp"
+
 namespace heap_test {
 
   TEST_CASE( "Basic FIFO heap operations", "[heap]" ) {

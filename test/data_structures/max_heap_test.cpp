@@ -1,3 +1,5 @@
+#include "../../data_structures/max_heap.hpp"
+
 namespace max_heap_test {
 
   TEST_CASE( "Basic FIFO operations maintains max ordering", "[min_heap]" ) {
