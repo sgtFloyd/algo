@@ -2,13 +2,13 @@
 #define ARRAY_HPP
 
 template <class T>
-class Array {
+class DynamicArray {
 protected:
   int size = 10;
   T* ptr = new T[size];
 
 public:
-  explicit Array(){};
+  explicit DynamicArray(){};
 
   T& operator[](int index) {
     if( index >= size ) {
@@ -18,6 +18,18 @@ public:
     else
       return *(ptr + index);
   }
+
+protected:
+  friend std::ostream&
+  operator<<(std::ostream &os, DynamicArray &a) {
+    os << "[";
+    for(int i=0; i<a.size; i++) {
+      if(i != 0) os << ", ";
+      os << *(a.ptr + i);
+    }
+    os << "]";
+    return os;
+  };
 
 private:
   void resize() {

@@ -51,7 +51,8 @@ protected:
     return left_child(index) >= size();
   }
 
-  friend std::ostream& operator<<(std::ostream &os, Heap &h) {
+  friend std::ostream&
+  operator<<(std::ostream &os, Heap &h) {
     return os << h.elements;
   };
 };

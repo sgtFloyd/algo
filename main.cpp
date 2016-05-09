@@ -1,9 +1,9 @@
 #include <iostream>
-#include "data_structures/array.hpp"
+#include "data_structures/dynamic_array.hpp"
 
 int main (int argc, char *argv[])
 {
-  Array<int> a;
+  DynamicArray<int> a;
   a[0] = 44;
   a[31] = 55;
   std::cout << a[31] << std::endl;
