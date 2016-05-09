@@ -3,7 +3,7 @@
 namespace max_heap_test {
 
   TEST_CASE( "Basic FIFO operations maintains max ordering", "[min_heap]" ) {
-    MaxHeap h;
+    MaxHeap<int> h;
 
     REQUIRE( h.size() == 0 );
 

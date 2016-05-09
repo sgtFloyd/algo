@@ -3,17 +3,23 @@
 
 #include "heap.hpp"
 
-class MinHeap : public Heap {
-public:
-  using Heap::Heap;
+template <class T>
+class MinHeap : public Heap<T> {
+protected:
+  // Declare as a dependent name, to avoid using this-> everywhere
+  // See: stackoverflow.com/a/4643295/261152
+  using Heap<T>::elements;
 
-  void insert(int element) {
+public:
+  using Heap<T>::Heap;
+
+  void insert(T element) {
     elements.push_back(element);
-    trickle_up(size()-1);
+    trickle_up(this->size()-1);
   }
 
-  int pop() {
-    int root = peek();
+  T pop() {
+    T root = this->peek();
     elements[0] = elements.back();
     elements.pop_back();
     trickle_down(0);
@@ -21,8 +27,14 @@ public:
   }
 
 private:
+  using Heap<T>::parent_node;
+  using Heap<T>::left_child;
+  using Heap<T>::right_child;
+  using Heap<T>::is_root_node;
+  using Heap<T>::is_leaf_node;
+
   int min_child(int index) {
-    if( right_child(index) < size() &&
+    if( right_child(index) < this->size() &&
           elements[right_child(index)] < elements[left_child(index)] )
       return right_child(index);
     else

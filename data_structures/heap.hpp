@@ -5,6 +5,7 @@
 #include <iostream>
 #include "../std_ext.hpp"
 
+template <class T>
 class Heap {
 public:
   explicit Heap(){};
@@ -13,22 +14,22 @@ public:
     return elements.size();
   }
 
-  void insert(int element) {
+  void insert(T element) {
     elements.push_back(element);
   }
 
-  int peek() const {
+  T peek() const {
     return elements.front();
   }
 
-  int pop() {
-    int root = peek();
+  T pop() {
+    T root = peek();
     elements.erase(elements.begin());
     return root;
   }
 
 protected:
-  std::vector<int> elements;
+  std::vector<T> elements;
 
   static int parent_node(int index) {
     return (index-1) / 2;

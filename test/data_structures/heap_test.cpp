@@ -3,7 +3,7 @@
 namespace heap_test {
 
   TEST_CASE( "Basic FIFO heap operations", "[heap]" ) {
-    Heap h;
+    Heap<int> h;
 
     REQUIRE( h.size() == 0 );
 

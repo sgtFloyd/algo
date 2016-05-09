@@ -3,7 +3,7 @@
 namespace min_heap_test {
 
   TEST_CASE( "Basic FIFO operations maintains min ordering", "[min_heap]" ) {
-    MinHeap h;
+    MinHeap<int> h;
 
     REQUIRE( h.size() == 0 );
 
