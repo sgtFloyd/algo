@@ -3,20 +3,22 @@
 
 #include "heap.hpp"
 
-// Abstract class encapsulating shared logic between implementations of ordered heaps.
+// Abstract class encapsulating logic shared between ordered heaps.
 template <class T>
 class OrderedHeap : public Heap<T> {
 protected:
-  // Declare as a dependent name, to avoid using this-> everywhere
+  // Declare as a dependent name, to avoid using this->elements everywhere
   // See: stackoverflow.com/a/4643295/261152
   using Heap<T>::elements;
 
 public:
+  // Adds a new element to the heap and rearranges to maintain ordering.
   void insert(T element) {
     elements.push_back(element);
     trickle_up(this->size()-1);
   }
 
+  // Removes and returns the first element and rearranges to maintain ordering.
   T pop() {
     T root = this->peek();
     elements[0] = elements.back();
@@ -26,6 +28,8 @@ public:
   }
 
 protected:
+  // Returns the index of the given node's most significant child, as defined
+  // by the inheriting class's compare_significance() function.
   int significant_child(int index) {
     int right_child = this->right_child(index);
     int left_child = this->left_child(index);
@@ -37,6 +41,8 @@ protected:
       return left_child;
   }
 
+  // Rearrange the heap to maintain ordering, starting from the given node and
+  // recursively traversing up the heap.
   void trickle_up(int index) {
     if( !this->is_root_node(index) ) {
       int parent = this->parent_node(index);
@@ -47,6 +53,8 @@ protected:
     }
   }
 
+  // Rearrange the heap to maintain ordering, starting from the given node and
+  // recursively traversing down the heap.
   void trickle_down(int index) {
     if( !this->is_leaf_node(index) ) {
       int child = this->significant_child(index);
@@ -58,7 +66,8 @@ protected:
   }
 
 private:
-  // Pure virtual function to be defined by inheriting classes
+  // Pure virtual function to be defined by inheriting classes. Will contain a
+  // comparison function to determine ordering within the heap.
   virtual bool compare_significance(int, int) = 0;
 };
 

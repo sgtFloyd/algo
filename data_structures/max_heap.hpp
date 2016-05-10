@@ -6,6 +6,8 @@
 template <class T>
 class MaxHeap : public OrderedHeap<T> {
 private:
+  // Defines larger elements as more significant, ensuring the heap remains
+  // ordered from largest to smallest.
   bool compare_significance(int index_a, int index_b) {
     return this->elements[index_a] > this->elements[index_b];
   }
