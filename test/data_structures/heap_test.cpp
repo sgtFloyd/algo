@@ -7,20 +7,21 @@ namespace heap_test {
 
     REQUIRE( h.size() == 0 );
 
+    h.insert(3);
     h.insert(5);
     h.insert(7);
 
-    REQUIRE( h.size() == 2 );
+    REQUIRE( h.size() == 3 );
+    REQUIRE( h.peek() == 3 );
+    REQUIRE( h.pop() == 3 );
     REQUIRE( h.peek() == 5 );
-    REQUIRE( h.pop() == 5 );
-    REQUIRE( h.peek() == 7 );
 
     h.insert(9);
 
+    REQUIRE( h.peek() == 5 );
+    REQUIRE( h.pop() == 5);
+    REQUIRE( h.size() == 2 );
     REQUIRE( h.peek() == 7 );
-    REQUIRE( h.pop() == 7);
-    REQUIRE( h.size() == 1 );
-    REQUIRE( h.peek() == 9 );
   }
 
 }

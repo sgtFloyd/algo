@@ -43,12 +43,16 @@ protected:
     return (index*2) + 2;
   }
 
-  bool is_root_node(int index) {
+  static bool is_root_node(int index) {
     return index == 0;
   }
 
   bool is_leaf_node(int index) {
     return left_child(index) >= size();
+  }
+
+  bool is_balanced_node(int index) {
+    return right_child(index) < size();
   }
 
   friend std::ostream&

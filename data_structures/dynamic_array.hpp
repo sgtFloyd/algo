@@ -25,7 +25,7 @@ protected:
     os << "[";
     for(int i=0; i<a.size; i++) {
       if(i != 0) os << ", ";
-      os << *(a.ptr + i);
+      os << a[i];
     }
     os << "]";
     return os;
