@@ -5,7 +5,7 @@ template <class T>
 class DynamicArray {
 protected:
   int capacity = 10;
-  T* ptr = new T[capacity];
+  T* ptr = new T[capacity]();
 
 public:
   explicit DynamicArray(){};
@@ -34,7 +34,7 @@ protected:
 private:
   void resize() {
     int new_capacity = capacity * 1.5;
-    T* new_ptr = new T[new_capacity];
+    T* new_ptr = new T[new_capacity]();
     for(int i=0; i<capacity; i++) {
       *(new_ptr + i) = *(ptr + i);
     }
