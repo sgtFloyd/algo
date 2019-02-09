@@ -9,18 +9,28 @@
  */
 
 #include <iostream>
-#include <gmpxx.h> // see: https://gmplib.org/manual/C_002b_002b-Class-Interface.html
-typedef mpz_class BigInt;
+#include <ctime>
+#include <gmpxx.h> // see: https://tspiteri.gitlab.io/gmp-mpfr-sys/gmp/
+using BigInt = mpz_class;
 
 class CoinTossGame {
 protected:
   BigInt my_score = 0;
   BigInt op_score = 6;
+  BigInt flips = 0;
 
 public:
-  BigInt run() {
-    return op_score;
+  void run() {
+    srand(time(NULL)); // Seed random number generator with current time
+
+    while(my_score < op_score) {
+      flips++;
+      if( rand() % 2 ){
+        op_score++;
+        my_score++++;
+      } else
+        my_score = 0;
+    }
   }
-};
 
 #endif
