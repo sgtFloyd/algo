@@ -1,11 +1,9 @@
 #include <iostream>
-#include "data_structures/dynamic_array.hpp"
+#include "playground/coin_toss_game.hpp"
 
 int main (int argc, char *argv[])
 {
-  DynamicArray<int> a;
-  a[0] = 44;
-  a[31] = 55;
-  std::cout << a[31] << std::endl;
+  CoinTossGame game;
+  std::cout << game.run() << std::endl;
   return 0;
 }
